@@ -69,7 +69,7 @@ public final class EventServiceGrpc {
       fullMethodName = SERVICE_NAME + '/' + "CaptureEvent",
       requestType = com.wheelseye.proto.event.EventRequest.class,
       responseType = com.wheelseye.proto.event.EventResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.wheelseye.proto.event.EventRequest,
       com.wheelseye.proto.event.EventResponse> getCaptureEventMethod() {
     io.grpc.MethodDescriptor<com.wheelseye.proto.event.EventRequest, com.wheelseye.proto.event.EventResponse> getCaptureEventMethod;
@@ -78,7 +78,7 @@ public final class EventServiceGrpc {
         if ((getCaptureEventMethod = EventServiceGrpc.getCaptureEventMethod) == null) {
           EventServiceGrpc.getCaptureEventMethod = getCaptureEventMethod = 
               io.grpc.MethodDescriptor.<com.wheelseye.proto.event.EventRequest, com.wheelseye.proto.event.EventResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "proto.event.EventService", "CaptureEvent"))
               .setSampledToLocalTracing(true)
@@ -92,6 +92,134 @@ public final class EventServiceGrpc {
         }
      }
      return getCaptureEventMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.wheelseye.proto.event.ServerStreamRequest,
+      com.wheelseye.proto.event.MimicResponse> getMimicListenerMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "MimicListener",
+      requestType = com.wheelseye.proto.event.ServerStreamRequest.class,
+      responseType = com.wheelseye.proto.event.MimicResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.wheelseye.proto.event.ServerStreamRequest,
+      com.wheelseye.proto.event.MimicResponse> getMimicListenerMethod() {
+    io.grpc.MethodDescriptor<com.wheelseye.proto.event.ServerStreamRequest, com.wheelseye.proto.event.MimicResponse> getMimicListenerMethod;
+    if ((getMimicListenerMethod = EventServiceGrpc.getMimicListenerMethod) == null) {
+      synchronized (EventServiceGrpc.class) {
+        if ((getMimicListenerMethod = EventServiceGrpc.getMimicListenerMethod) == null) {
+          EventServiceGrpc.getMimicListenerMethod = getMimicListenerMethod = 
+              io.grpc.MethodDescriptor.<com.wheelseye.proto.event.ServerStreamRequest, com.wheelseye.proto.event.MimicResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.event.EventService", "MimicListener"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.ServerStreamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.MimicResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EventServiceMethodDescriptorSupplier("MimicListener"))
+                  .build();
+          }
+        }
+     }
+     return getMimicListenerMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.wheelseye.proto.event.MimicStartRequest,
+      com.wheelseye.proto.event.MimicRecieveResponse> getMimicRecieveMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "MimicRecieve",
+      requestType = com.wheelseye.proto.event.MimicStartRequest.class,
+      responseType = com.wheelseye.proto.event.MimicRecieveResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.wheelseye.proto.event.MimicStartRequest,
+      com.wheelseye.proto.event.MimicRecieveResponse> getMimicRecieveMethod() {
+    io.grpc.MethodDescriptor<com.wheelseye.proto.event.MimicStartRequest, com.wheelseye.proto.event.MimicRecieveResponse> getMimicRecieveMethod;
+    if ((getMimicRecieveMethod = EventServiceGrpc.getMimicRecieveMethod) == null) {
+      synchronized (EventServiceGrpc.class) {
+        if ((getMimicRecieveMethod = EventServiceGrpc.getMimicRecieveMethod) == null) {
+          EventServiceGrpc.getMimicRecieveMethod = getMimicRecieveMethod = 
+              io.grpc.MethodDescriptor.<com.wheelseye.proto.event.MimicStartRequest, com.wheelseye.proto.event.MimicRecieveResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.event.EventService", "MimicRecieve"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.MimicStartRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.MimicRecieveResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EventServiceMethodDescriptorSupplier("MimicRecieve"))
+                  .build();
+          }
+        }
+     }
+     return getMimicRecieveMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.wheelseye.proto.event.MimicLayoutRequest,
+      com.wheelseye.proto.event.MimicLayoutResponse> getMimicSendMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "MimicSend",
+      requestType = com.wheelseye.proto.event.MimicLayoutRequest.class,
+      responseType = com.wheelseye.proto.event.MimicLayoutResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<com.wheelseye.proto.event.MimicLayoutRequest,
+      com.wheelseye.proto.event.MimicLayoutResponse> getMimicSendMethod() {
+    io.grpc.MethodDescriptor<com.wheelseye.proto.event.MimicLayoutRequest, com.wheelseye.proto.event.MimicLayoutResponse> getMimicSendMethod;
+    if ((getMimicSendMethod = EventServiceGrpc.getMimicSendMethod) == null) {
+      synchronized (EventServiceGrpc.class) {
+        if ((getMimicSendMethod = EventServiceGrpc.getMimicSendMethod) == null) {
+          EventServiceGrpc.getMimicSendMethod = getMimicSendMethod = 
+              io.grpc.MethodDescriptor.<com.wheelseye.proto.event.MimicLayoutRequest, com.wheelseye.proto.event.MimicLayoutResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.event.EventService", "MimicSend"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.MimicLayoutRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.MimicLayoutResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EventServiceMethodDescriptorSupplier("MimicSend"))
+                  .build();
+          }
+        }
+     }
+     return getMimicSendMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.wheelseye.proto.event.GetEventRequest,
+      com.wheelseye.proto.event.GetEventResponse> getGetEventsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetEvents",
+      requestType = com.wheelseye.proto.event.GetEventRequest.class,
+      responseType = com.wheelseye.proto.event.GetEventResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.wheelseye.proto.event.GetEventRequest,
+      com.wheelseye.proto.event.GetEventResponse> getGetEventsMethod() {
+    io.grpc.MethodDescriptor<com.wheelseye.proto.event.GetEventRequest, com.wheelseye.proto.event.GetEventResponse> getGetEventsMethod;
+    if ((getGetEventsMethod = EventServiceGrpc.getGetEventsMethod) == null) {
+      synchronized (EventServiceGrpc.class) {
+        if ((getGetEventsMethod = EventServiceGrpc.getGetEventsMethod) == null) {
+          EventServiceGrpc.getGetEventsMethod = getGetEventsMethod = 
+              io.grpc.MethodDescriptor.<com.wheelseye.proto.event.GetEventRequest, com.wheelseye.proto.event.GetEventResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.event.EventService", "GetEvents"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.GetEventRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.wheelseye.proto.event.GetEventResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new EventServiceMethodDescriptorSupplier("GetEvents"))
+                  .build();
+          }
+        }
+     }
+     return getGetEventsMethod;
   }
 
   /**
@@ -138,6 +266,34 @@ public final class EventServiceGrpc {
       asyncUnimplementedUnaryCall(getCaptureEventMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void mimicListener(com.wheelseye.proto.event.ServerStreamRequest request,
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getMimicListenerMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void mimicRecieve(com.wheelseye.proto.event.MimicStartRequest request,
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicRecieveResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getMimicRecieveMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicLayoutRequest> mimicSend(
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicLayoutResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getMimicSendMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getEvents(com.wheelseye.proto.event.GetEventRequest request,
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.GetEventResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetEventsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -149,11 +305,39 @@ public final class EventServiceGrpc {
                   this, METHODID_HEALTH_CHECK)))
           .addMethod(
             getCaptureEventMethod(),
-            asyncServerStreamingCall(
+            asyncUnaryCall(
               new MethodHandlers<
                 com.wheelseye.proto.event.EventRequest,
                 com.wheelseye.proto.event.EventResponse>(
                   this, METHODID_CAPTURE_EVENT)))
+          .addMethod(
+            getMimicListenerMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.wheelseye.proto.event.ServerStreamRequest,
+                com.wheelseye.proto.event.MimicResponse>(
+                  this, METHODID_MIMIC_LISTENER)))
+          .addMethod(
+            getMimicRecieveMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.wheelseye.proto.event.MimicStartRequest,
+                com.wheelseye.proto.event.MimicRecieveResponse>(
+                  this, METHODID_MIMIC_RECIEVE)))
+          .addMethod(
+            getMimicSendMethod(),
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                com.wheelseye.proto.event.MimicLayoutRequest,
+                com.wheelseye.proto.event.MimicLayoutResponse>(
+                  this, METHODID_MIMIC_SEND)))
+          .addMethod(
+            getGetEventsMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.wheelseye.proto.event.GetEventRequest,
+                com.wheelseye.proto.event.GetEventResponse>(
+                  this, METHODID_GET_EVENTS)))
           .build();
     }
   }
@@ -191,8 +375,40 @@ public final class EventServiceGrpc {
      */
     public void captureEvent(com.wheelseye.proto.event.EventRequest request,
         io.grpc.stub.StreamObserver<com.wheelseye.proto.event.EventResponse> responseObserver) {
-      asyncServerStreamingCall(
+      asyncUnaryCall(
           getChannel().newCall(getCaptureEventMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void mimicListener(com.wheelseye.proto.event.ServerStreamRequest request,
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getMimicListenerMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void mimicRecieve(com.wheelseye.proto.event.MimicStartRequest request,
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicRecieveResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getMimicRecieveMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicLayoutRequest> mimicSend(
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicLayoutResponse> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(getMimicSendMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     */
+    public void getEvents(com.wheelseye.proto.event.GetEventRequest request,
+        io.grpc.stub.StreamObserver<com.wheelseye.proto.event.GetEventResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetEventsMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -226,10 +442,33 @@ public final class EventServiceGrpc {
 
     /**
      */
-    public java.util.Iterator<com.wheelseye.proto.event.EventResponse> captureEvent(
-        com.wheelseye.proto.event.EventRequest request) {
-      return blockingServerStreamingCall(
+    public com.wheelseye.proto.event.EventResponse captureEvent(com.wheelseye.proto.event.EventRequest request) {
+      return blockingUnaryCall(
           getChannel(), getCaptureEventMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.wheelseye.proto.event.MimicResponse> mimicListener(
+        com.wheelseye.proto.event.ServerStreamRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getMimicListenerMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.wheelseye.proto.event.MimicRecieveResponse> mimicRecieve(
+        com.wheelseye.proto.event.MimicStartRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getMimicRecieveMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.wheelseye.proto.event.GetEventResponse> getEvents(
+        com.wheelseye.proto.event.GetEventRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetEventsMethod(), getCallOptions(), request);
     }
   }
 
@@ -261,10 +500,22 @@ public final class EventServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getHealthCheckMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.wheelseye.proto.event.EventResponse> captureEvent(
+        com.wheelseye.proto.event.EventRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCaptureEventMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_HEALTH_CHECK = 0;
   private static final int METHODID_CAPTURE_EVENT = 1;
+  private static final int METHODID_MIMIC_LISTENER = 2;
+  private static final int METHODID_MIMIC_RECIEVE = 3;
+  private static final int METHODID_GET_EVENTS = 4;
+  private static final int METHODID_MIMIC_SEND = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -291,6 +542,18 @@ public final class EventServiceGrpc {
           serviceImpl.captureEvent((com.wheelseye.proto.event.EventRequest) request,
               (io.grpc.stub.StreamObserver<com.wheelseye.proto.event.EventResponse>) responseObserver);
           break;
+        case METHODID_MIMIC_LISTENER:
+          serviceImpl.mimicListener((com.wheelseye.proto.event.ServerStreamRequest) request,
+              (io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicResponse>) responseObserver);
+          break;
+        case METHODID_MIMIC_RECIEVE:
+          serviceImpl.mimicRecieve((com.wheelseye.proto.event.MimicStartRequest) request,
+              (io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicRecieveResponse>) responseObserver);
+          break;
+        case METHODID_GET_EVENTS:
+          serviceImpl.getEvents((com.wheelseye.proto.event.GetEventRequest) request,
+              (io.grpc.stub.StreamObserver<com.wheelseye.proto.event.GetEventResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -301,6 +564,9 @@ public final class EventServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_MIMIC_SEND:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.mimicSend(
+              (io.grpc.stub.StreamObserver<com.wheelseye.proto.event.MimicLayoutResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -354,6 +620,10 @@ public final class EventServiceGrpc {
               .setSchemaDescriptor(new EventServiceFileDescriptorSupplier())
               .addMethod(getHealthCheckMethod())
               .addMethod(getCaptureEventMethod())
+              .addMethod(getMimicListenerMethod())
+              .addMethod(getMimicRecieveMethod())
+              .addMethod(getMimicSendMethod())
+              .addMethod(getGetEventsMethod())
               .build();
         }
       }

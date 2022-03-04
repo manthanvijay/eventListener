@@ -11,7 +11,11 @@ option java_multiple_files = true;
 // Event service endpoints
 service EventService {
   rpc HealthCheck(HealthRequest) returns (HealthResponse) {}
-  rpc CaptureEvent(EventRequest) returns (stream EventResponse) {}
+  rpc CaptureEvent(EventRequest) returns (EventResponse) {}
+  rpc MimicListener(ServerStreamRequest) returns (stream MimicResponse) {}
+  rpc MimicRecieve(MimicStartRequest) returns (stream MimicRecieveResponse) {}
+  rpc MimicSend(stream MimicLayoutRequest) returns (MimicLayoutResponse) {}
+  rpc GetEvents(GetEventRequest) returns (stream GetEventResponse){}
 }
 
 // HealthResponse for health check
@@ -30,4 +34,40 @@ message EventRequest {
 
 message EventResponse {
   string response = 1;
+}
+
+
+message MimicStartRequest {
+  string uuid = 1;
+}
+
+message MimicRecieveResponse {
+  int32 layout_id = 1;
+  map<string, string> data = 2;
+}
+
+message ServerStreamRequest {
+  string app_id = 1;
+}
+
+message MimicResponse {
+  string request = 1;
+}
+
+message MimicLayoutRequest {
+  int32 layout_id = 1;
+  map<string, string> data = 2;
+}
+
+message MimicLayoutResponse {
+  string response = 1;
+}
+
+message GetEventRequest {
+  string event_name = 1;
+}
+
+message GetEventResponse {
+  string event_name = 1;
+  string phone_number = 2;
 }
