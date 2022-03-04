@@ -3,6 +3,7 @@ package com.protojava;
 import com.wheelseye.proto.event.*;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ public class EventService extends EventServiceGrpc.EventServiceImplBase {
     EventServiceGrpc.EventServiceBlockingStub blockingStub;
     @GrpcClient("event")
     EventServiceGrpc.EventServiceImplBase     asyncStub;
+    @Autowired
+    SancharService sancharService;
 
     public String ping() {
         HealthResponse response = blockingStub.healthCheck(HealthRequest.newBuilder().setPing("hello").build());
@@ -28,7 +31,8 @@ public class EventService extends EventServiceGrpc.EventServiceImplBase {
             public void onNext(GetEventResponse event) {
                 event.getEventName();
                 event.getPhoneNumber();
-                System.out.printf("%s %s", event.getEventName(), event.getPhoneNumber());
+                sancharService.sendWhatsappMessage(event.getPhoneNumber(),"Event");
+                // System.out.printf("%s %s", event.getEventName(), event.getPhoneNumber());
             }
 
             @Override
