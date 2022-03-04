@@ -12,12 +12,12 @@ public class TestController {
     private EventService eventService;
 
     @GetMapping("/test")
-    public void testController(@RequestParam String eventName) {
+    public void testController() {
         eventService.ping();
     }
 
     @GetMapping("/getEvent")
-    public void getEvent(@RequestParam String eventName) {
-        eventService.eventsToBeCaptured(eventName);
+    public String getEvent(@RequestParam String eventName) {
+        return eventService.eventsToBeCaptured(eventName);
     }
 }
