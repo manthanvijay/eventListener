@@ -23,7 +23,7 @@ public class EventService extends EventServiceGrpc.EventServiceImplBase {
     private static final Logger LOG = LoggerFactory.getLogger(EventService.class);
 
     public String ping() {
-        HealthResponse response = blockingStub.healthCheck(HealthRequest.newBuilder().setPing("hello").build());
+        HealthResponse response = blockingStub.healthCheck(HealthRequest.newBuilder().build());
         return response.getPong();
     }
 

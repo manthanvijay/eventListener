@@ -89,7 +89,7 @@
 			<name>libs-releases</name>
 			<url>https://artifactory.wheelseye.in/artifactory/libs-release</url>
 		</repository>
-	</repositories>>
+	</repositories>
 	<build>
 		<finalName>ROOT</finalName>
 		<plugins>

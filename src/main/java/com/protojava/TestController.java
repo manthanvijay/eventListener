@@ -12,8 +12,8 @@ public class TestController {
     private EventService eventService;
 
     @GetMapping("/test")
-    public void testController() {
-        eventService.ping();
+    public String testController() {
+        return eventService.ping();
     }
 
     @GetMapping("/getEvent")
