@@ -20,11 +20,11 @@ public class SancharService {
 
     private static final Logger LOG = LoggerFactory.getLogger(SancharService.class);
 
-    public void sendWhatsappMessage() {
+    public void sendWhatsappMessage(String phoneNo, String eventName) {
         WhatsappRequest request = WhatsappRequest.newBuilder()
                 .setTemplateName("otpmsgalert")
-                .setPhoneNumber("8387921296")
-                .setOrigin("po")
+                .setPhoneNumber(phoneNo)
+                .setOrigin(eventName)
                 .build();
         WhatsappResponse response = blockingStub.sendWhatsapp(request);
         LOG.info(response.getMessageId());

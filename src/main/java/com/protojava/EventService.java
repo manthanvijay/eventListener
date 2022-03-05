@@ -37,7 +37,7 @@ public class EventService {
             @Override
             public void onNext(GetEventResponse value) {
 
-                sancharService.sendWhatsappMessage();
+                sancharService.sendWhatsappMessage(value.getPhoneNumber(), value.getEventName());
                 LOG.info("onNext-{}", value.getEventName());
             }
 
