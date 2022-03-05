@@ -12,10 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.Iterator;
 
 @Service
-public class EventService extends EventServiceGrpc.EventServiceImplBase {
+public class EventService {
 
     @GrpcClient("event")
     EventServiceGrpc.EventServiceBlockingStub blockingStub;
+
+    @GrpcClient("event")
+    EventServiceGrpc.EventServiceStub stub;
+
     @Autowired
     SancharService sancharService;
 
@@ -29,25 +33,24 @@ public class EventService extends EventServiceGrpc.EventServiceImplBase {
 
     @Async
     public String eventsToBeCaptured(String eventName) {
-        getEvents(GetEventRequest.newBuilder().setEventName(eventName).build(), new StreamObserver<GetEventResponse>() {
+        stub.getEvents(GetEventRequest.newBuilder().setEventName(eventName).build(), new StreamObserver<GetEventResponse>() {
             @Override
-            public void onNext(GetEventResponse event) {
-                event.getEventName();
-                event.getPhoneNumber();
-                sancharService.sendWhatsappMessage(event.getPhoneNumber(),"Event");
-                // System.out.printf("%s %s", event.getEventName(), event.getPhoneNumber());
+            public void onNext(GetEventResponse value) {
+
+                sancharService.sendWhatsappMessage();
+                LOG.info("onNext-{}", value.getEventName());
             }
 
             @Override
-            public void onError(Throwable throwable) {
-                LOG.error("error occured while throwing event to sanchar");
+            public void onError(Throwable t) {
+                LOG.info("onError", t);
             }
 
             @Override
             public void onCompleted() {
-                LOG.info("Process completed");
+                LOG.info("onCompleted");
             }
         });
-        return "Success";
+        return "ok";
     }
 }
