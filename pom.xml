@@ -130,7 +130,7 @@
 								<!--Java GRPC code-->
 								<outputTarget>
 									<type>grpc-java</type>
-									<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.15.0</pluginArtifact>
+									<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.36.0</pluginArtifact>
 									<outputDirectory>src/main/java</outputDirectory>
 								</outputTarget>
 							</outputTargets>
